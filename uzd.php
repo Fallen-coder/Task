@@ -8,7 +8,7 @@ function view(&$tasks){
         $id+=1;
     }
 }
-function add(&$tasks){
+function add($tasks){
     $add = readline("add===>>>  ");
     $tasks[] =$add;
 }
@@ -20,7 +20,7 @@ function destroy(&$tasks){
 function update(&$tasks){
     $id = readline("id===>>>  ");
     $edit = readline("edit===>>>  ");
-    $tasks[$id-1] = $edit;
+    $tasks[] = $edit;
 }
 while (true){
     $input = readline("input===>>>  ");
@@ -38,7 +38,7 @@ while (true){
             destroy($tasks);
             break;
         case '4':
-            update($tasks);
+            update();
         break;
                                                       
         default:
