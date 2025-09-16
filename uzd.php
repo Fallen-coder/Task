@@ -12,7 +12,10 @@ function add(&$tasks){
     $add = readline("add===>>>  ")."\n";
     $tasks[] =$add;
 }
-
+function destroy(&$tasks){
+    $id = readline("id===>>>  ")."\n";
+    unset($tasks[$id-1]);
+}
 while (true){
     $input = readline("input===>>>  ")."\n";
     if ($input == "n"){
@@ -26,7 +29,7 @@ while (true){
             add($tasks);
             break;
         case '3':
-            view($tasks);
+            destroy($tasks);
             break;
                                     
         default:
