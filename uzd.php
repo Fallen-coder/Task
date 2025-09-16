@@ -9,15 +9,21 @@ function view(&$tasks){
     }
 }
 function add(&$tasks){
-    $add = readline("add===>>>  ")."\n";
+    $add = readline("add===>>>  ");
     $tasks[] =$add;
 }
 function destroy(&$tasks){
-    $id = readline("id===>>>  ")."\n";
+    $id = readline("id===>>>  ");
     unset($tasks[$id-1]);
+    $tasks = array_values($tasks);
+}
+function update(&$tasks){
+    $id = readline("id===>>>  ");
+    $edit = readline("edit===>>>  ");
+    $tasks[$id-1] = $edit;
 }
 while (true){
-    $input = readline("input===>>>  ")."\n";
+    $input = readline("input===>>>  ");
     if ($input == "n"){
         exit;
     }
@@ -31,7 +37,10 @@ while (true){
         case '3':
             destroy($tasks);
             break;
-                                    
+        case '4':
+            update($tasks);
+        break;
+                                                      
         default:
             echo "no such function \n";
             break;
