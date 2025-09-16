@@ -34,10 +34,6 @@ function view(&$tasks){
         $task->show();
     }
 }
-function add(&$tasks){
-    $add = readline("add===>>>  ");
-    $task->add($add);
-}
 function destroy(&$tasks){
     $id = readline("id===>>>  ");
     unset($tasks[$id-1]);
@@ -72,7 +68,8 @@ while (true){
             line();
         break;
         case '3':
-            add($tasks);
+            $add = readline("add===>>>  ");
+            $task->add($add);;
             line();
             break;
         case '4':
