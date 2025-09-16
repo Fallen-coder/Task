@@ -8,6 +8,10 @@ function view(&$tasks){
         $id+=1;
     }
 }
+function add(&$tasks){
+    $add = readline("add===>>>  ")."\n";
+    $tasks[] =$add;
+}
 
 while (true){
     $input = readline("input===>>>  ")."\n";
@@ -18,7 +22,13 @@ while (true){
         case '1':
             view($tasks);
             break;
-        
+        case '2':
+            add($tasks);
+            break;
+        case '3':
+            view($tasks);
+            break;
+                                    
         default:
             echo "no such function \n";
             break;
