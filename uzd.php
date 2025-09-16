@@ -14,16 +14,17 @@ class Task{
     public function edit($edit){
         $this->task =$edit;
     }
-    public function add($add){
-        $tasks[] =new Task($add);
-    }
 }
 $tasks = [
     new Task("ghgf"),
     new Task("sdfgfd"),
     new Task("uiuii"),
 ];
+function add(&$tasks){
+    $add = readline("add===>>>  ");
+    $tasks[] = new Task($add);
 
+}
 function line(){
     echo "---------------------------\n\n";
 }
@@ -58,6 +59,8 @@ while (true){
         exit;
     }
     switch ($input) {
+        case '0':
+            exit;
         case '1':
             view($tasks);
             line();
@@ -68,8 +71,7 @@ while (true){
             line();
         break;
         case '3':
-            $add = readline("add===>>>  ");
-            $task->add($add);;
+            add($tasks);
             line();
             break;
         case '4':
@@ -91,5 +93,7 @@ while (true){
             line();
             break;
     }
+    $json = json_encode($tasks, JSON_PRETTY_PRINT);
 
+    file_put_contents('file.json', $json);
 }
